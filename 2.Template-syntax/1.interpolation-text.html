@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插值-文本</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <span>双向绑定，msg会随着输入改变：{{msg}}</span>
+    <input type="text" v-model="msg" placeholder="this is msg">
+    <br>
+    <span v-once>单向绑定，msg1不会随着输入改变：{{msg1}}</span>
+    <input type="text" v-model="msg1" placeholder="this is msg1">
+</div>
+<script>
+    //插入文本的几种形式：
+    // 1.{{msg}}
+    // 2.v-text="msg"
+    // 3.v-html="msg"
+    new Vue({
+        el:"#app",
+        data:{
+            msg:"Hello,vue.js",
+            msg1:"Hello,vue.js"
+        }
+    })
+</script>
+</body>
+</html>
