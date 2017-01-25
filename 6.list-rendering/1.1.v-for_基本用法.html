@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表渲染 v-for基本用法</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <!-- 我们用 v-for 指令根据一组数组的选项列表进行渲染。-->
+    <!-- v-for 指令需要以 item in items 形式的特殊语法， items 是源数据数组并且 item 是数组元素迭代的别名。-->
+    <ul id="demo1">
+        <li v-for="item in items">{{item.msg}}</li>
+    </ul>
+    <!-- 在 v-for 块中，我们拥有对父作用域属性的完全访问权限。 v-for 还支持一个可选的第二个参数为当前项的索引。-->
+    <ul id="demo2">
+        <li v-for="(item, index) in items"> {{ parentMsg }} - {{ index }} - {{ item.msg }}</li>
+    </ul>
+    <!-- 也可以用 of 替代 in 作为分隔符，因为它是最接近 JavaScript 迭代器的语法：-->
+    <div v-for="item of items"></div>
+    <script>
+        var vm1=new Vue({
+            el:"#demo1",
+            data:{
+                items:[
+                    {msg:"foo"},
+                    {msg:"bar"}
+                ]
+            }
+        });
+        var vm2=new Vue({
+            el:"#demo2",
+            data:{
+                parentMsg:"parent",
+                items:[
+                    {msg:"foo"},
+                    {msg:"bar"}
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

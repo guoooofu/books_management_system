@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表渲染 v-for_template</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<!-- 如同 v-if 模板，你也可以用带有 v-for 的 <template> 标签来渲染多个元素块。例如：-->
+<ul id="demo">
+    <template v-for="item in items">
+        <li>{{ item.msg }}</li>
+        <li class="divider"></li>
+    </template>
+</ul>
+<script>
+    var vm=new Vue({
+        el:"#demo",
+        data:{
+            items:[
+                {msg:111},
+                {msg:222},
+                {msg:333}
+            ]
+        }
+    })
+</script>
+</body>
+</html>
