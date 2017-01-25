@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单控制绑定 绑定value-选择列表设置</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <select v-model="selected">
+        <!-- 内联对象字面量 -->
+        <option v-bind:value="{ number: 123 }">123</option>
+    </select>
+</div>
+<script>
+    var vm=new Vue({
+        el:"#app"
+    })
+    // 当选中时
+//    typeof vm.selected // -> 'object'
+//    vm.selected.number // -> 123
+</script>
+</body>
+</html>

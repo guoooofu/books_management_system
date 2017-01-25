@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单控件绑定 基础用法-选择列表</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="demo1">
+    <!-- 单选列表 -->
+    <select v-model="selected">
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+    <span>Selected: {{ selected }}</span>
+</div>
+<div id="demo2">
+    <!-- 多选列表 -->
+    <select v-model="selected" multiple>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+    <span>Selected: {{ selected }}</span>
+</div>
+<div id="demo3">
+    <!-- 动态选项，用 v-for 渲染：-->
+    <select v-model="selected">
+        <option v-for="option in options" v-bind:value="option.value">
+            {{ option.text }}
+        </option>
+    </select>
+    <span>Selected: {{ selected }}</span>
+</div>
+<script>
+    var vm1=new Vue({
+        el:"#demo1",
+        data:{
+            selected:"A"
+        }
+    });
+    var vm2=new Vue({
+        el:"#demo2",
+        data:{
+            selected:""
+        }
+    });
+    var vm3=new Vue({
+        el:"#demo3",
+        data: {
+            selected: 'A',
+            options: [
+                { text: 'One', value: 'A' },
+                { text: 'Two', value: 'B' },
+                { text: 'Three', value: 'C' }
+            ]
+        }
+    })
+</script>
+</body>
+</html>

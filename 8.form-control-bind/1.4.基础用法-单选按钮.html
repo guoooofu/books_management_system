@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单控件绑定 基础用法-复选框</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <label for="one">
+        <input type="radio" id="one" value="one" v-model="choose">one
+    </label>
+    <label for="two">
+        <input type="radio" id="two" value="two" v-model="choose">two
+    </label>
+    <div>choose:{{choose}}</div>
+</div>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            choose:""
+        }
+    })
+</script>
+</body>
+</html>
