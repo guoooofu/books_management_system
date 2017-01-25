@@ -1,0 +1,60 @@
+1.Vue实例
+    1.1每个Vue应用都是通过构造函数Vue创建一个Vue的根实例启动的，实例化Vue时需要传入一个选项对象。
+    new Vue({
+        //传入的选项对象：
+       el:提供一个在页面上已存在的 DOM 元素作为 Vue 实例的挂载目标。可以是 CSS 选择器，也可以是一个 HTML元素实例。
+       template:一个字符串模板作为 Vue 实例的标识使用。模板将会 替换 挂载的元素。挂载元素的内容都将被忽略，除非模板的内容有分发 slot。
+       methods:
+       data:
+       computed:
+    })
+    1.2可以使用Vue.extend()创建可复用的组件构造器
+        var MyComponent = Vue.extend({
+          // 预定义的扩展选项
+        })
+        // 所有的 `MyComponent` 实例都将以预定义的扩展选项被创建
+        var myComponentInstance = new MyComponent()
+
+2.组件的使用
+    定义：组件可以是自定义元素或者HTML元素
+
+    作用：组件可以扩展 HTML 元素，封装可重用的代码。
+
+    全局注册组件：语法：Vue.component(tagName, options)
+        组件在注册之后，便可以在父实例的模块中以自定义元素 <my-component></my-component> 的形式使用。
+        要确保在初始化根实例 之前 注册了组件：
+        例子：<div id="example">
+                <my-component></my-component>
+              </div>
+              // 注册
+              Vue.component('my-component', {
+                template: '<div>A custom component!</div>'
+              })
+              // 创建根实例
+              new Vue({
+                el: '#example'
+              })
+    局部注册组件：通过使用组件实例选项注册，可以使组件仅在另一个实例/组件的作用域中可用：
+        例子：<div id="example">
+                 <my-component></my-component>
+              </div>
+              var Child = {
+                template: '<div>A custom component!</div>'
+              }
+              new Vue({
+                // ...
+                components: {
+                  // <my-component> 将只在父模板可用
+                  'my-component': Child
+                }
+              })
+3.组件间的通信
+  3.1父组件==>子组件 使用props
+     1.局部或者全局声明子组件
+     2.在另外一个另一个组件模板中写入刚声明的子组件
+     3.修改子组件，添加props["msg"]
+     4.使用v-bind将要传输的数据msg传到每个每个重复的组件中
+     5.在父组件components中引用子组件
+  3.2子组件==>父组件
+      子调用父：使用v-on $emit
+      父调用子：使用ref $ref
