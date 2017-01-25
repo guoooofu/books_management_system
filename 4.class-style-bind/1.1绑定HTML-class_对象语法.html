@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绑定HTML-class 对象语法</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- 1.传给 v-bind:class 一个对象，以动态地切换 class  -->
+    <div v-bind:class="{active:isActive}">1</div>
+
+    <!-- 2.可以在对象中传入更多属性用来动态切换多个 class 。此外， v-bind:class 指令可以与普通的 class 属性共存 -->
+    <div class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }">2</div>
+
+    <!-- 3.可以直接绑定数据里的一个对象： -->
+    <div class="static" v-bind:class="classObject">3</div>
+</div>
+<div id="app1">
+    <!-- 4.可以在这里绑定返回对象的计算属性 -->
+    <div class="static" v-bind:class="classObject">4</div>
+</div>
+<script>
+    var vm=new Vue({
+        el:"#app",
+        data:{
+            isActive: true,
+            hasError: false,
+            classObject:{
+                isActive: true,
+                hasError: false
+            }
+        }
+    });
+    var vm1=new Vue({
+        el:"#app1",
+        data: {
+            isActive: true,
+            error: null
+        },
+        computed: {
+            classObject: function () {
+                return {
+                    isActive: this.isActive && !this.error,
+                    'text-danger': this.error && this.error.type === 'fatal',
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

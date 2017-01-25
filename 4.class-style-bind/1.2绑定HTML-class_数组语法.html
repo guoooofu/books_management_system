@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绑定HTML-class 数组语法</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- 1.可以把一个数组传给 v-bind:class ，以应用一个 class 列表： -->
+    <div v-bind:class="[activeClass, errorClass]">1</div>
+
+    <!-- 2.想根据条件切换列表中的 class ，可以用三元表达式： -->
+    <div v-bind:class="[isActive ? activeClass : '', errorClass]">2</div>
+
+    <!-- 3.当有多个条件 class 时，三元表达式显得有些繁琐。可以在数组语法中使用对象语法 -->
+    <div v-bind:class="[{ active: isActive }, errorClass]">3</div>
+</div>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            isActive:false,
+            activeClass: 'active',
+            errorClass: 'text-danger'
+        }
+    })
+</script>
+</body>
+</html>
