@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>4.字面量语法 vs 动态语法</title>
+        <script src="../../vue.js"></script>
+    </head>
+    <body>
+    <div id="app">
+      <!-- 传递了一个字符串"5" -->
+      <comp some-prop="5"></comp>
+      <br />
+      <!-- 传递了一个实际的数字5 -->
+      <comp v-bind:some-prop="5"></comp>
+    </div>
+    <script>
+      Vue.component('comp',{
+        props:['someProp'],
+        template:'<span>{{someProp+5}}</span>'
+      });
+      var vm=new Vue({
+        el:"#app"
+      })
+    </script>
+    </body>
+</html>

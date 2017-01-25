@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>11.use x-template</title>
+        <script src="../../vue.js"></script>
+    </head>
+    <body>
+      <pre>
+        使用x-template，增加组件的弹性
+      </pre>
+      <!-- DOM模板 -->
+      <script type="text/x-template" id="userform">
+        <div>
+          <h2>{{title}}</h2>
+          <label for="username">Name:
+            <input id="username" v-model="user.name" type="text">
+          </label>
+          <label for="useremail">Email:
+            <input id="useremail" v-model="user.email" type="text">
+          </label>
+          <button v-on:click="save">Submit</button>
+          {{tmp1}}<br>
+          {{user.name}}<br>
+          {{user.email}}<br>
+        </div>
+      </script>
+
+      <div id="app1"></div>
+
+      <script>
+        var vm=new Vue({
+          el:'#app1',
+          template:"#userform",
+          data:function(){
+            return{
+              title:'用户登录',
+              user:{
+                name:'王国富',
+                email:'m13224597763@163.com'
+              },
+              tmp1:''
+            }
+          },
+          methods:{
+            'save':function(){
+              this.tmp1='clicked'
+            }
+          }
+        })
+      </script>
+    </body>
+</html>

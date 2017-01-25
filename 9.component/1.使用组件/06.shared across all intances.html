@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>shared across all intances||组件选项问题</title>
+        <script src="../../vue.js"></script>
+    </head>
+    <body>
+      <pre>组件关于data选项的错误写法示例1:
+            data后没有跟function
+      </pre>
+      <div id="app">{{a}}</div>
+      <script>
+      //*********************************************
+      // 故意让data 交错使用，而不用function
+      // vue.js会自动检查，出现错误信息
+      // [Vue warn]: The "data" option should be a function that returns a per-instance value in component definitions. 
+      var data={
+        a:1 The "data" option should be a function that returns a per-instance value in component definitions. 
+      }
+      var MyComponent=Vue.extend({
+        data:data
+      })
+      var vm=new Vue({
+        el:"#app"
+      })
+      </script>
+    </body>
+</html>

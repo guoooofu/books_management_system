@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1.单个solt</title>
+    <script src="../../vue.js"></script>
+</head>
+<body>
+<!-- 一个匿名slot，它只能表示一个插槽。-->
+<div id="app">
+    <h1>我是父组件的标题</h1>
+    <my-component>
+        <p>这是分发的内容：hello vue.js</p>
+    </my-component>
+    <my-component></my-component>
+</div>
+<template id="myComponent">
+    <div>
+        <h2>我是子组件的标题</h2>
+        <slot>只有在没有要分发的内容时才会显示。</slot>
+    </div>
+</template>
+<script>
+    var child={
+        template:'#myComponent'
+    }
+    var vm=new Vue({
+        el:"#app",
+        components:{
+            'my-component':child
+        }
+    })
+</script>
+</body>
+</html>

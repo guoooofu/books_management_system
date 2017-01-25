@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1.使用v-on绑定自定义事件</title>
+    <script src="../../vue.js"></script>
+</head>
+<body>
+<!-- 父组件是使用props向子组件传输数据，
+     子组件则是使用自定义事件向父组件传输数据
+ -->
+<!--每个Vue实例都实现了事件接口，即：使用$on(eventName)监听事件；使用$emit(eventName)触发事件
+    另外，父组件可以在使用子组件的地方直接用v-on来监听子组件触发的事件。
+-->
+<div id="father">
+    <p>{{total}}</p>
+    <child v-on:add="addToFather"></child>
+    <child v-on:add="addToFather"></child>
+    <child v-on:add="addToFather"></child>
+</div>
+<script>
+    Vue.component('child', {
+        template: '<button v-on:click="add">{{count}}</button>',
+        data: function () {
+            return {
+                count: 0
+            }
+        },
+        methods: {
+            add: function () {
+                this.count += 1;
+                this.$emit('add')
+            }
+        }
+    });
+    var vm = new Vue({
+        el: '#father',
+        data: {
+            total: 0
+        },
+        methods: {
+            addToFather: function () {
+                this.total += 1;
+            }
+        }
+    })
+</script>
+</body>
+</html>

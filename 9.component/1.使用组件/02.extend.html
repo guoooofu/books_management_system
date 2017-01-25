@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="../../vue.js"></script>
+        <title>extend</title>
+    </head>
+    <body>
+    <div id="app">
+      <pre>
+        我们可以用Vue.extend()创建一个组件构造器，再利用$mount把它挂载到指定元素上使用，
+        或者用Vue.component(tag,constructor)注册后用作组件。
+        控制台中可以看到vue组件-myComponent的实例
+        1)$options
+        可以看到 template
+        2)_data
+        可以看到 data msg
+        3)执行myComponentInstance.$mount("#app")
+        可以看到这个vue组件实例，就挂载在#app元素上
+      </pre>
+    </div>
+    <script>
+    var MyComponent=Vue.extend({
+      template:'<div><h1>{{msg1}}</h1>我是Vue的实例{{{msg}}}</div>',
+      data:function(){
+        return{
+          msg:'{{msg1}};我是vue的组件实例{{{msg}}}',
+          msg1:'msg1目前没有vue component 的规格文件'
+        }
+      }
+    });
+    var myComponentInstance=new MyComponent();
+    console.log(myComponentInstance);
+    </script>
+    </body>
+</html>

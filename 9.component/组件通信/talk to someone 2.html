@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>talk to someone 2--Event bus(observe pattern)</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<div id="app">
+		<component-a></component-a>
+		<hr>
+		<component-b></component-b>
+	</div>
+	<script src="http://cdn.bootcss.com/vue/2.1.8/vue.js"></script>
+	<script>
+		var bus=new Vue();
+
+		Vue.component('component-a',{
+			template:'<input type="button" @click="notify" value="component-a"/>',
+			methods:{
+				notify:function(){
+					bus.$emit('EventB',new Date().getTime())
+				}
+			},
+			created:function(){
+				bus.$on('EventA',function time(time){
+					console.log('Component A received at'+time)
+				})
+			}
+		})
+
+		Vue.component('component-b',{
+			template:'<input type="button" @click="notify" value="component-b"/>',
+			methods:{
+				notify:function(){
+					bus.$emit('EventA',new Date().getTime())
+				}
+			},
+			created:function(){
+				bus.$on('EventB',function time(time){
+					console.log('Component B received at'+time)
+				})
+			}
+		})
+
+		new Vue({
+			el:'#app'
+		})
+	</script>
+</body>
+</html>

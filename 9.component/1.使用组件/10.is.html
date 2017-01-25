@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>10.is</title>
+        <script src="../../vue.js"></script>
+    </head>
+    <body>
+      <pre>
+        自定义元素，使用is的特性
+      </pre>
+      <div id="app1">
+        <table border="1">
+          <tr is="my-component1"></tr>
+          <tr is="my-component2"></tr>
+        </table>
+      </div>
+      <script>
+      var tr1=Vue.extend({
+        template:'<tr><td>项目1</td><td>{{a}}</td></tr>',
+        data:function(){
+          return {
+            a:'vue.js很有趣'
+          }
+        }
+      });
+      var tr2=Vue.extend({
+        template:'<tr><td>项目2</td><td>{{a}}</td></tr>',
+        data:function(){
+          return {
+            a:'每个例子都很好玩'
+          }
+        }
+      });
+
+      var vm=new Vue({
+        el:'#app1',
+        components:{
+          'my-component1':tr1,
+          'my-component2':tr2
+        }
+      });
+      </script>
+    </body>
+</html>

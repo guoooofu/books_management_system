@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.子向父组件通信-子调用父</title>
+    <script src="../../vue.js"></script>
+</head>
+<body>
+<div id="father">
+    <p>{{total}}</p>
+    <child v-on:increment="incrementTotal"></child>
+    <child v-on:increment="incrementTotal"></child>
+</div>
+<script>
+    //子组件执行add --> 触发$emit --> 触发父组件increment --> 执行 incrementTotal 方法
+    var Child=Vue.component("child",{
+        template:'<button v-on:click="add">{{counter}}</button>',
+        data:function(){
+            return{
+                counter:0
+            }
+        },
+        methods:{
+            add:function(){
+                this.counter+=1;
+                this.$emit('increment');
+                //子组件通过 $emit触发父组件的方法 increment   还可以传参   this.$emit('increment' ,this.counter);
+            }
+        }
+    });
+    var vm=new Vue({
+        el:"#father",
+        components:{
+            "child":Child
+        },
+        data:{
+            total:0
+        },
+        methods:{
+            incrementTotal:function(){
+                this.total +=1;
+            }
+        }
+    })
+</script>
+</body>
+</html>

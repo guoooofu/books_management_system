@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.指定名称的solt</title>
+    <script src="../../vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <app-layout>
+    <h1 slot="header">这里可能是一个页面标题</h1>
+    <p>主要内容的一个段落。</p>
+    <p>另一个主要段落。</p>
+    <p slot="footer">这里有一些联系信息</p>
+  </app-layout>
+</div>
+<script>
+  var child={
+    template:'<div class="container"><header><slot name="header">这里放页面标题</slot></header>' +
+    '<main><slot>匿名默认的solt,作为找不到匹配的内容片段的备用插槽</slot></main>' +
+    '<footer><slot name="footer">这里放页脚-联系信息</slot></footer></div>'
+  }
+  var vm=new Vue({
+    el:'#app',
+    components:{
+      'app-layout':child
+    }
+  })
+</script>
+</body>
+</html>

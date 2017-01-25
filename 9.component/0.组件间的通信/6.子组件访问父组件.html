@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子组件访问父组件/根组件：使用$parent/$root</title>
+    <script src="../../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <parent-component></parent-component>
+</div>
+
+<template id="parent-component">
+    <child-component></child-component>
+</template>
+
+<template id="child-component">
+    <div>
+        <h2>This is a child component</h2>
+        <button v-on:click="showParentComponentData">显示父组件的数据</button>
+    </div>
+</template>
+
+
+<script>
+    /**尽管可以访问父链上任意的实例，不过子组件应当避免直接依赖父组件的数据，尽量显式地
+     * 使用 props 传递数据。另外，在子组件中修改父组件的状态是非常糟糕的做法，因为：
+     1.这让父组件与子组件紧密地耦合；
+     2. 只看父组件，很难理解父组件的状态。因为它可能被任意子组件修改！理想情况下，只有组件自己能修改它的状态。*/
+    Vue.component('parent-component', {
+        template: '#parent-component',
+        components: {
+            'child-component': {
+                template: '#child-component',
+                methods: {
+                    showParentComponentData: function() {
+                        alert(this.$parent.msg)
+                        alert(this.$root.msg)
+                    }
+                }
+            }
+        },
+        data: function() {
+            return {
+                msg: 'this is parent component msg'
+            }
+        }
+    })
+    new Vue({
+        el: '#app',
+        data:{
+            msg:'this is root instance msg'
+        }
+    })
+</script>
+</body>
+</html>

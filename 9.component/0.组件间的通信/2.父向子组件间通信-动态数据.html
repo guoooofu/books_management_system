@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.父向子组件间通信-动态数据</title>
+    <script src="../../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{msg}}</p>
+    <input type="text" v-model="msg">
+    <my-child v-bind:ftcmsg="fatherData"></my-child>
+    <my-child v-bind:ftcmsg="msg"></my-child>
+</div>
+<script>
+    Vue.component("my-child",{
+        props:["ftcmsg"],
+        template:'<h1>{{ftcmsg}}{{cmsg}}</h1>',
+        data:function(){
+            return {
+                cmsg:"我是子组件中的数据"
+            }
+        }
+    })
+    new Vue({
+        el:"#app",
+        data: {
+            fatherData:"我是父组件的数据，现在在子组件中。",
+            msg: "father。"
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>2.cameCase vs kebab-case</title>
+        <script src="../../vue.js"></script>
+    </head>
+    <body>
+    <pre>
+      props 正常版
+    </pre>
+    <div id="app1">
+      <child1 my-msg="hello1"></child1>
+    </div>
+    <pre>
+      props 第一个大写版
+    </pre>
+    <div id="app2">
+      <child2 My-msg="hello2"></child2>
+    </div>
+    <pre>
+      props 最后一个大写版
+    </pre>
+    <div id="app3">
+      <child3 my-msg-E="hello3"></child3>
+    </div>
+    <script>
+    Vue.component('child1',{
+      //cameCase in js
+      props:['myMsg'],
+      template:'<span>{{myMsg}}</span>'
+    });
+    var vm1=new Vue({
+      el:'#app1'
+    });
+
+    Vue.component('child2',{
+      //cameCase in js
+      props:['MyMsg'],
+      template:'<span>{{MyMsg}}</span>'
+    });
+    var vm2=new Vue({
+      el:'#app2'
+    });
+
+    Vue.component('child3',{
+      //cameCase in js
+      props:['myMsgE'],
+      template:'<span>{{myMsgE}}</span>'
+    });
+    var vm3=new Vue({
+      el:'#app3'
+    });
+    </script>
+    </body>
+</html>

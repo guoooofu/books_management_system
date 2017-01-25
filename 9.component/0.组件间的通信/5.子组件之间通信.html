@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5.子组件之间通信</title>
+    <script src="../../vue.js"></script>
+</head>
+<body>
+<script>
+    //官网：在简单的场景下，使用一个空的 Vue 实例作为中央事件总线
+    var bus = new Vue()
+    // 触发组件 A 中的事件
+    bus.$emit('id-selected', 1)
+    // 在组件 B 创建的钩子中监听事件
+    bus.$on('id-selected', function (id) {
+// ...
+    })
+    //但是这样实在太麻烦了，建议使用vuex
+</script>
+</body>
+</html>
