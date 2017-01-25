@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件渲染_v-if template中v-if条件组</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- 可以把一个<template>元素当做包装元素，并在上面使用 v-if，可实现切换多个元素，最终的渲染结果不会包含它。 -->
+    <template v-if="ok">
+        <h1>Title</h1>
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+    </template>
+</div>
+<script>
+    var vm=new Vue({
+        el:"#app",
+        data:{
+            ok:true//#app元素内不包含<template>元素
+        }
+    })
+</script>
+</body>
+</html>

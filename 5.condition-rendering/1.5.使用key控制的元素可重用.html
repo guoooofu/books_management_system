@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件渲染_v-if 使用key控制的元素可重用</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<!-- Vue 尝试尽可能高效的渲染元素，通常会复用已有元素而不是从头开始渲染。这么做可以使vue更快还能带来一些好处 -->
+<div id="app">
+    <template v-if="loginType === 'username'">
+        <label>Username</label>
+        <input placeholder="Enter your username">
+    </template>
+    <template v-else>
+        <label>Email</label>
+        <input placeholder="Enter your email address">
+    </template>
+    <br>
+    <button v-on:click="toggleType">toggle loginType</button>
+    <!-- 在代码中切换 loginType 不会删除用户已经输入的内容，两个模版由于使用了相同的元素，
+    <input> 会被复用，仅仅是替换了他们的 placeholder。 -->
+</div>
+
+<!-- Vue 提供一种方式让你可以自己决定是否要复用元素。你要做的是添加一个属性 key ，key 必须带有唯一的值。 -->
+<div id="app1">
+    <template v-if="loginType === 'username'">
+        <label>Username</label>
+        <input placeholder="Enter your username" key="username-input">
+    </template>
+    <template v-else>
+        <label>Email</label>
+        <input placeholder="Enter your email address" key="email-input">
+    </template>
+    <br>
+    <button v-on:click="toggleType">toggle loginType</button>
+    <!--注意：只有input元素没有被复用，<label> 元素仍然会被复用，因为没有被添加了 key 属性。  -->
+</div>
+
+<script>
+    var vm=new Vue({
+        el:"#app",
+        data:{
+            loginType:"username"
+        },
+        methods:{
+            toggleType:function () {
+                if(this.loginType==="username"){
+                    this.loginType="address"
+                }else {
+                    this.loginType="username"
+                }
+            }
+        }
+    });
+    var vm1=new Vue({
+        el:"#app1",
+        data:{
+            loginType:"username"
+        },
+        methods:{
+            toggleType:function () {
+                if(this.loginType==="username"){
+                    this.loginType="address"
+                }else {
+                    this.loginType="username"
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

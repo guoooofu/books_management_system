@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件渲染_v-if  v-else</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- 可以用 v-else 指令给 v-if 添加一个 “else” 块： -->
+    <div v-if="random > 0.5">随机数比0.5大</div>
+    <div v-else>随机数比0.5小</div>
+    <!--注意：v-else 元素必须紧跟在 v-if 元素或者 v-else-if的后面——否则它不能被识别。 -->
+</div>
+<script>
+    var vm=new Vue({
+        el:"#app",
+        data:{
+            random:"Math.random()"
+        }
+    })
+</script>
+</body>
+</html>
