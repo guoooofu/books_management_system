@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue component demo</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+    var myComponent=Vue.extend({
+        template:"<div>我是vue得组件实例，有看到么？</div>"
+    });
+    var myComponentInstance=new myComponent();
+    console.log(myComponentInstance);//VueComponent
+    myComponentInstance.$mount("#app");
+
+</script>
+</body>
+</html>

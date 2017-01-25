@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>properties and methods2</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    我的名字叫guoooofu,{{a}}
+</div>
+<script>
+    //除了 data 属性， Vue 实例暴露了一些有用的实例属性与方法。这些属性与方法都有前缀 $，以便与代理的 data 属性区分
+    var data={
+        a:"刚开始学习vue.js"
+    };
+    var vm=new Vue({
+        el:"#demo",
+        data:data
+    });
+    vm.$data === data // -> true
+    vm.$el === document.getElementById('example') // -> true
+
+    // $watch 是一个实例方法
+    vm.$watch("a",function (newVal, oldVal) {
+        // 这个回调函数将在 `vm.a`  改变后调用
+        console.log("a原来的值："+oldVal+",a新的值："+newVal );
+    });
+    vm.a="目前感觉vue.js非常好玩";//更新了a的值，可以在控制台看到$watch方法被调用了
+</script>
+</body>
+</html>

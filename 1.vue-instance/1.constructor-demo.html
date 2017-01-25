@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>constructor demo</title>
+</head>
+<body>
+<script>
+    function Person(gender) {
+        this.gender=gender;
+    }
+    Person.prototype.sayGender=function () {
+        document.write("this gender is: "+this.gender);
+    };
+    var person1=new Person("男性");
+    person1.sayGender();
+</script>
+</body>
+</html>
