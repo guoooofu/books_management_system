@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性 VS Watched Property</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="demo">{{ fullName }}</div>
+<script>
+    // $watch ，它用于观察 Vue 实例上的数据变动.
+    var vm = new Vue({
+        el: '#demo',
+        data: {
+            firstName: 'Foo',
+            lastName: 'Bar',
+            fullName: 'Foo Bar'
+        },
+        watch: {
+            firstName: function (val) {
+                this.fullName = val + ' ' + this.lastName
+            },
+            lastName: function (val) {
+                this.fullName = this.firstName + ' ' + val
+            }
+        }
+    });
+    console.log(vm.firstName+";"+vm.lastName);//Foo;Bar
+
+    //上面代码是命令式的和重复的。跟计算属性对比：
+    var vm1 = new Vue({
+        el: '#demo',
+        data: {
+            firstName: 'Foo',
+            lastName: 'Bar'
+        },
+        computed: {
+            fullName: function () {
+                return this.firstName + ' ' + this.lastName
+            }
+        }
+    })
+    console.log(vm1.firstName+";"+vm1.lastName);//Foo;Bar
+</script>
+</body>
+</html>
