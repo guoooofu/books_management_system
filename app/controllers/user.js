@@ -51,10 +51,7 @@ exports.signup=function (req,res){
         if(user){//用户名被注册
             return res.redirect("/signin");
         }else{//用户名未被注册
-            var UserEntity=new UserModel({
-                name:UserObj.name,
-                password:UserObj.password
-            });
+            var UserEntity=new UserModel(UserObj);
             UserEntity.save(function (err, user) {
                 if(err){console.log(err)}
                 req.session.user=user;

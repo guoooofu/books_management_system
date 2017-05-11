@@ -1,11 +1,11 @@
 var mongoose = require("mongoose")
 var Schema= mongoose.Schema;
 var BookSchema = new Schema({
-    number:String,
-    title:{
+    number:{
         unique: true,
         type: String
     },
+    title:String,
     author:String,
     translator:String,
     publisher:String,
@@ -13,15 +13,15 @@ var BookSchema = new Schema({
     pages:String,
     pubdate:String,
     image:String,
-    summary:String
-    // createAt: {
-    //     type: Date,
-    //     default: Date.now()
-    // },
-    // updateAt: {
-    //     type: Date,
-    //     default: Date.now()
-    // }
+    summary:String,
+    createAt: {
+        type: Date,
+        default: Date.now()
+    },
+    updateAt: {
+        type: Date,
+        default: Date.now()
+    }
 })
 
 BookSchema.pre('save', function(next) {
@@ -33,6 +33,7 @@ BookSchema.pre('save', function(next) {
     else {
         this.updateAt = Date.now()
     }
+    next();
 })
 
 //静态方法：通过该模型就可以调用
