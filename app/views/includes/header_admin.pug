@@ -1,0 +1,17 @@
+nav.navbar.navbar-inverse.pmd-navbar.navbar-fixed-top.pmd-z-depth
+  .container-fluid
+    // 侧边栏切换按钮
+    .navbar-header
+      a.btn.btn-sm.pmd-btn-fab.pmd-ripple-effect.btn-primary.pull-left.margin-r8.pmd-sidebar-toggle(href="javascript:void(0);")
+        i.fa.fa-bars.fa-2x
+      a.navbar-brand(href="javascript:void(0);") 图书管理系统|后台管理
+    // 导航条右侧图标
+    .pmd-navbar-right-icon.pull-right.navigation
+      .dropdown.notification.icons.pmd-dropdown
+        a.dropdown-toggle.pmd-ripple-effect(href="javascript:void(0);" data-toggle="dropdown" aria-expand="true" title="notification" role="button")
+          i.fa.fa-bell.pmd-sm.pmd-badge.pmd-badge-overlap(data-badge=3 style="color:#fff;font-size:24px") 
+        .dropdown-menu.dropdown-menu-right.pmd-card.pmd-card-default.pmd-z-depth(role="menu")
+          .pmd-card-title
+            .media-body.media-middle
+              a(href="/admin/notifications").pull-right 3条新通知
+              h3.pmd-card-title-text 通知

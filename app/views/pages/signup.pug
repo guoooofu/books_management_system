@@ -1,0 +1,42 @@
+extends ../layout.pug
+
+block append headCssFiles
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  link(rel="stylesheet" href="css/signup.css") 
+
+block content
+  .container.signup-container
+    .pmd-card.card-default.pmd-z-depth
+      .register-card
+        .pmd-card-title.card-header-border.text-center
+          .loginlogo
+            a(href="javascript:void(0)")
+              img(src="/images/logo-icon.png" alt="Logo")
+            span.h1 图书管理系统
+          .h2 <strong>注册</strong>
+          form(method="POST" action="/user/signup")
+            .pmd-card-body
+              .form-group.pmd-textfield.pmd-textfield-floating-label 
+                label.control-label.pmd-input-group-label(for="name") 用户名
+                .input-group
+                  .input-group-addon
+                    i.material-icons.md-dark.pmd-sm perm_identity
+                  input#name.form-control(type="text" name="name")
+              .form-group.pmd-textfield.pmd-textfield-floating-label 
+                label.control-label.pmd-input-group-label(for="e-mail") 邮箱
+                .input-group
+                  .input-group-addon
+                    i.material-icons.md-dark.pmd-sm email
+                  input#e-mail.form-control(type="email" name="e-mail")
+              .form-group.pmd-textfield.pmd-textfield-floating-label 
+                label.control-label.pmd-input-group-label(for="password") 密码
+                .input-group
+                  .input-group-addon
+                    i.material-icons.md-dark.pmd-sm lock_outline
+                  input#password.form-control(type="password" name="password")
+            .pmd-card-footer.card-footer-no-border.card-footer-p16.text-center
+              button.btn.pmd-ripple-effect.btn-primary.btn-block(type="submit") 注册
+              .redirection-link 已有账号?&nbsp;
+                a.register-login(href="/signin") 登录
+block append footJsFiles
+  script(src="js/signup.js")

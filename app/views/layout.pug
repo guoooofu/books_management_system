@@ -1,0 +1,39 @@
+doctype html5
+html(lang="zh-CN")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge") 
+    meta(name="viewport" content="width=device-width, initial-scale=1, user-scalable=no") 
+    title=title
+    <link rel="icon" type="image/x-ico" href="/favicon.ico"/>
+    //- css files
+    block headCssFiles
+      link(rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css")
+      link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+      link(rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css") 
+      link(rel="stylesheet" href="/lib/propeller/dist/css/propeller.min.css") 
+      link(rel="stylesheet" href="/lib/propeller/dist/css/propeller-theme.css") 
+      //- link(rel="stylesheet" href="/lib/propeller/dist/css/propeller-admin.css") 
+    //- css styles 
+    block headCss  
+    //- <!--[if lt IE 9]>
+    //-   <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    //-   <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    //- <![endif]-->
+    //- js files (header)
+    block headJsFiles
+    //- js scripts (header)
+    block headJs  
+  body
+    block header
+      
+    block content
+      
+    block footer
+    //- js files (footer)  
+    block footJsFiles  
+      script(src="/lib/jquery/dist/jquery.min.js")
+      script(src="/lib/bootstrap/dist/js/bootstrap.min.js") 
+      script(src="/lib/propeller/dist/js/propeller.min.js") 
+    //- js scripts (footer)
+    block footJs     

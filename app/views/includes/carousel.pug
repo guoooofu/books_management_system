@@ -1,0 +1,26 @@
+.container
+  #carousel.carousel.slide(data-ride="carsousel")
+    // 指示器
+    ol.carousel-indicators
+      li.active(data-target="#carousel" data-slide-to="0")
+      li(data-target="#carousel" data-slide-to="1")
+      li(data-target="#carousel" data-slide-to="2")
+    //滑块容器
+    .carousel-inner(role="listbox")
+      .item.active
+        img(src="/images/slide-0.jpg" alt="0")
+        .carousel-caption  
+      .item
+        img(src="/images/slide-1.jpg" alt="1")
+        .carousel-caption 
+      .item
+        img(src="/images/slide-2.jpg" alt="2")
+        .carousel-caption    
+    //控制区
+    a.left.carousel-control(href="#carousel" data-slide="prev") 
+      span.glyphicon.glyphicon-chevron-left(aria-hidden="true")
+      span.sr-only Previous  
+    a.right.carousel-control(href="#carousel" data-slide="next") 
+      span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
+      span.sr-only Previous    
+                

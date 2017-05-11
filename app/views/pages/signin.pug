@@ -1,0 +1,34 @@
+extends ../layout.pug
+
+block append headCssFiles
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  link(rel="stylesheet" href="css/signin.css") 
+
+block content
+  .container.signin-container
+    .pmd-card.card-default.pmd-z-depth
+      .register-card
+        .pmd-card-title.card-header-border.text-center
+          .loginlogo
+            a(href="javascript:void(0)")
+              img(src="/images/logo-icon.png" alt="Logo")
+            span.h1 图书管理系统
+          .h2 <strong>登录</strong>
+          form(method="POST" action="/user/signin")
+            .pmd-card-body
+              .form-group.pmd-textfield.pmd-textfield-floating-label 
+                label.control-label.pmd-input-group-label(for="name") 用户名
+                .input-group
+                  .input-group-addon
+                    i.material-icons.md-dark.pmd-sm perm_identity
+                  input#name.form-control(type="text" name="name")
+              .form-group.pmd-textfield.pmd-textfield-floating-label 
+                label.control-label.pmd-input-group-label(for="password") 密码
+                .input-group
+                  .input-group-addon
+                    i.material-icons.md-dark.pmd-sm lock_outline
+                  input#password.form-control(type="password" name="password")
+            .pmd-card-footer.card-footer-no-border.card-footer-p16.text-center
+              button.btn.pmd-ripple-effect.btn-primary.btn-block(type="submit") 登录
+              .redirection-link 还没账号?&nbsp;
+                a.register-login(href="/signup") 注册   

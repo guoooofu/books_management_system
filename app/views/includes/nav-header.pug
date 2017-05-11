@@ -1,0 +1,50 @@
+block append header
+  // 头部导航
+  .header
+    .navbar.navbar-default.navbar-fixed-top
+        .container
+            .navbar-header
+              button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarTop" aria-expanded="false")
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a.navbar-brand.navbar-brand-custome(href="/")
+                img(src="/images/logo-icon.png" alt="Logo" class="logo-icon")
+            #navbarTop.collapse.navbar-collapse
+              ul.nav.navbar-nav
+                li.navbar-active
+                  a(href="#") 首页
+                li
+                  a(href="#") 图书馆简介  
+                li
+                  a(href="#") 读者指南      
+                li
+                  a(href="#") 关于  
+              if user
+                ul.nav.navbar-nav.navbar-right
+                  li.dropdown
+                    a.drapdown-toggle(href="#" data-toggle="dropdown")  
+                      img(src="/images/avatar-icon.png") 
+                      |#{user.name}
+                      b.caret
+                    ul.dropdown-menu
+                      li
+                        a(href="/admin") 后台管理
+                      li
+                        a(href="/editProfile") 编辑资料
+                      li  
+                        a(href="/signout") 注销    
+              else
+                ul.nav.navbar-nav.navbar-right
+                  li 
+                    a#signin.btn.pmd-btn-outline.pmd-ripple-effect.btn-info(href="/signin") 登录             
+                  li 
+                    a#signup.btn.pmd-btn-raised.pmd-ripple-effect.btn-info(href="/signup") 注册  
+    
+    .container.nav-show
+      .pageheader.fixe-demo.dark
+        h2.title 大庆师范学院&nbsp|&nbsp图书管理系统
+          p Daqing Normal University | Library Management System
+          //canvas粒子运动插件
+      #particleground  

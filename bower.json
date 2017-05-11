@@ -1,0 +1,24 @@
+{
+  "name": "books_management_system",
+  "description": "This is my graduation project",
+  "main": "app.js",
+  "authors": [
+    "guoooofu"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "node.js",
+    "express",
+    "mongodb",
+    "javascript"
+  ],
+  "homepage": "https://github.com/guoooofu/books_management_system",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ]
+}

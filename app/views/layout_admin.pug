@@ -1,0 +1,10 @@
+extends ./layout
+
+block append headCssFiles
+  link(rel="stylesheet" href="/lib/propeller/dist/css/propeller-admin.css")
+  link(rel="stylesheet" href="/css/bootsnav.css")
+
+block header
+  include includes/header_admin.pug
+block content 
+  include includes/sidebar_admin.pug 

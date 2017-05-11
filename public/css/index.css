@@ -1,0 +1,82 @@
+/* header style */
+.navbar-default .navbar-nav>li>a{
+  cursor:pointer;
+}
+
+/*nav-header style*/
+.navbar-fixed-top {
+  padding-top: 10px;
+  background-color: #fff;
+}
+.logo-icon{
+  width: 50px;
+  height:50px;
+  margin-top: -15px;
+}
+.navbar-default .navbar-right>li>a{
+  padding: 5px;
+  margin: 9px 5px;
+  color:#2B90ED;
+}
+#signin:hover{
+  color:#fff;
+  background-color: #2B90ED;
+}
+#signup{
+  color:#fff;
+  background-color: #2B90ED;
+}
+#signup:hover{
+  color:#fff;
+  background-color: rgba(43, 144, 237,0.7)
+
+}
+/* nav-show style*/
+.nav-show{
+  position: relative;;
+  margin-bottom: 10px;
+  padding: 0;
+}
+.nav-show #particleground{
+  position: absolute;
+  top: 0;
+  width:100%;
+  height: 100%;
+  z-index: -1;
+}
+.pageheader {
+    padding: 130px 0 70px;
+    width: 100%;
+    color: #000;
+}
+.pageheader .title{
+  font-size: 30px;
+  color:#000;
+}
+/* carousel style*/
+#carousel{
+  margin-top: 10px;
+  height: 400px;
+  margin: 0 -15px;
+}
+#carousel img{
+  display: block;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+/* ranking style*/
+.show{
+  margin-top: 20px;
+  font-size: 20px;
+}
+hr{
+  border-color: rgba(0,0,0,0.5);
+}
+
+/* footer style*/
+.footer{
+  margin-top: 20px;
+  font-size: 14px;
+  background: #fff;
+}

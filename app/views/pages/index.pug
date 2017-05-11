@@ -1,0 +1,18 @@
+extends  ../layout
+
+block append headCssFiles
+  link(rel="stylesheet" href="/css/bootsnav.css")
+  link(rel="stylesheet" href="/css/index.css")
+
+block header
+  include ../includes/nav-header.pug
+
+block content
+  include ../includes/carousel.pug
+  include ../includes/ranking.pug
+block footer
+  include ../includes/footer.pug
+  
+block append footJsFiles 
+  script(src="/js/index.js") 
+  script(src="/js/particleground.min.js")  

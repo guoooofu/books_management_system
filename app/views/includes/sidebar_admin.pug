@@ -1,0 +1,73 @@
+// sidebar starts
+.pmd-sidebar-overlay
+aside.pmd-sidebar.sidebar-default.pmd-sidebar-slide-push.pmd-sidebar-left.pmd-sidebar-open.bg-fill-darkblue.sidebar-with-icons  
+  ul.nav.pmd-sidebar-nav
+    //admin info 
+    li.dropdown.pmd-dropdown.pmd-user-info.visible-xs.visible-md.visible-sm.visible-lg
+      a.btn-user.dropdown-toggle.media(aria-expanded="false" data-toggle="dropdown" data-sidebar="true" href="javascript:void(0);")
+        .media-left
+          img(src="/images/avatar-icon.png" alt="admin user") 
+        .media-body.media-middle #{user.name}
+        .media-right.media-middle
+          i.fa.fa-ellipsis-v.fa-lg  
+      .pmd-dropdown-menu-container
+        .pmd-dropdown-menu-bg
+        ul.dropdown-menu
+          li
+            a(href="/signout")
+              i.fa.fa-power-off
+              |退出  
+    //end admin info
+    li.dropdown.pmd-dropdown
+      a.pmd-ripple-effect.active(href="/admin")
+        span.media-left.media-middle
+          i.fa.fa-home.fa-lg 
+        span.media-body 主页          
+    li.dropdown.pmd-dropdown
+      a.btn-user.dropdown-toggle.media(aria-expanded="false" data-toggle="dropdown" data-sidebar="true" href="javascript:void(0);")
+        span.media-left.media-middle
+          i.fa.fa-book.fa-lg
+        span.media-body 图书管理
+      .pmd-dropdown-menu-container
+        .pmd-dropdown-menu-bg
+        ul.dropdown-menu
+          li
+            a(href="/admin/addBook") 录入图书
+          li
+            a(href="#") 图书列表  
+          li
+            a(href="#") 书架整理    
+    li.dropdown.pmd-dropdown
+      a.btn-user.dropdown-toggle.media(aria-expanded="false" data-toggle="dropdown" data-sidebar="true" href="javascript:void(0);")
+        span.media-left.media-middle
+          i.fa.fa-user.fa-lg
+        span.media-body 用户管理
+      .pmd-dropdown-menu-container
+        .pmd-dropdown-menu-bg
+        ul.dropdown-menu
+          li
+            a(href="#") 添加用户
+          li
+            a(href="#") 用户列表    
+    li.dropdown.pmd-dropdown
+      a.btn-user.dropdown-toggle.media(aria-expanded="false" data-toggle="dropdown" data-sidebar="true" href="javascript:void(0);")
+        span.media-left.media-middle
+          i.fa.fa-cog.fa-lg
+        span.media-body 系统设置
+      .pmd-dropdown-menu-container
+        .pmd-dropdown-menu-bg
+        ul.dropdown-menu
+          li
+            a(href="#") 添加用户
+          li
+            a(href="#") 用户列表  
+    li.dropdown.pmd-dropdown
+      a.pmd-ripple-effect(href="/")
+        span.media-left.media-middle
+          i.fa.fa-bell.fa-lg 
+        span.media-body 通知                  
+    li.dropdown.pmd-dropdown
+      a.pmd-ripple-effect(href="/")
+        span.media-left.media-middle
+          i.fa.fa-mail-reply.fa-lg 
+        span.media-body 前台主页     

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Propeller Basic HTML Template</title>
+
+  <!-- Bootstrap css-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  <!--Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Propeller css -->
+  <link href="css/propeller.min.css" rel="stylesheet">
+</head>
+
+<body>
+      <nav class="navbar navbar-inverse navbar-fixed-top pmd-navbar pmd-z-depth">
+
+          <div class="container-fluid">
+              <!--右提醒-->
+              <div class="pmd-navbar-right-icon pull-right navigation">
+                  <!-- Notifications -->
+                  <div class="dropdown notification icons pmd-dropdown">
+                      <a href="javascript:void(0)" title="Notification" class="dropdown-toggle pmd-ripple-effect" data-toggle="dropdown" role="button" aria-expanded="true">
+                          <div data-badge="3" class="material-icons md-light pmd-sm pmd-badge  pmd-badge-overlap">notifications_none</div>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right pmd-card pmd-card-default pmd-z-depth" role="menu">
+                          <!-- Card header -->
+                          <div class="pmd-card-title">
+                              <div class="media-body media-middle">
+                                  <a href="javascript:void(0)" class="pull-right">3 个 新提醒</a>
+                                  <h3 class="pmd-card-title-text">提醒事项</h3>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- End notifications -->
+              </div>
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <!--左侧滑-->
+              <div class="navbar-header">
+                  <a href="javascript:void(0);" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect pull-left margin-r8 pmd-sidebar-toggle"><i class="material-icons">menu</i></a>
+                  <a href="../Login/index.html" class="navbar-brand">
+  		   	成都大学信工学院|实训实习系统
+  		  </a>
+              </div>
+          </div>
+
+      </nav>
+
+
+  <!-- Sidebar -->
+  <section id="pmd-main">
+      <!-- Left sidebar -->
+      <aside class="pmd-sidebar sidebar-custom sidebar-default pmd-sidebar-slide-push pmd-sidebar-left pmd-z-depth sidebar-hide-custom" role="navigation" style="position: absolute;">
+          <ul class="nav pmd-sidebar-nav">
+              <!-- My Account -->
+              <li class="dropdown pmd-dropdown pmd-user-info">
+                  <a aria-expanded="false" data-sidebar="true" data-toggle="dropdown" class="btn-user dropdown-toggle media" href="javascript:void(0);">
+                      <div class="media-left">
+                          <img width="40" height="40" alt="avatar" src="http://propeller.in/assets/images/avatar-icon-40x40.png">
+                      </div>
+                      <div class="media-body media-middle">D,Material Admin</div>
+                      <div class="media-right media-middle"><i class="material-icons pmd-sm">more_vert</i></div>
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li> <a class="pmd-ripple-effect" href="javascript:void(0);" tabindex="-1"><i class="material-icons media-left media-middle">person</i> <span class="media-body">View Profile</span></a></li>
+                      <li> <a class="pmd-ripple-effect" href="javascript:void(0);" tabindex="-1"><i class="material-icons media-left media-middle">settings</i> <span class="media-body">Settings</span></a></li>
+                      <li> <a class="pmd-ripple-effect" href="javascript:void(0);" tabindex="-1"><i class="material-icons media-left media-middle">history</i> <span class="media-body">Logout</span></a></li>
+                  </ul>
+              </li>
+              <li> <a class="pmd-ripple-effect" href="javascript:void(0);"><i class="material-icons media-left media-middle">delete</i> <span class="media-body">Trash</span></a> </li>
+              <li> <a class="pmd-ripple-effect" href="javascript:void(0);"><i class="material-icons media-left media-middle">notifications</i> <span class="media-body">Spam</span></a> </li>
+              <li> <a class="pmd-ripple-effect" href="javascript:void(0);"><i class="material-icons media-left media-middle">notifications</i> <span class="media-body">Follow Up</span></a> </li>
+          </ul>
+      </aside>
+
+      <!-- Content -->
+      <div class="pmd-content" id="content">
+          <h2 class="headline">Sidebar Constructor</h2>
+          <p>This structure shows a permanent app bar with a floating action button. The app bar absorbs elements from the tablet and mobile bottom bars.</p>
+          <p style="margin-bottom:0;">An optional bottom bar can be added for additional functionality or action overflow. A side nav overlays all other structural elements. A right nav menu can be accessed temporarily or pinned for permanent display.<br><br></p>
+      </div>
+
+      <div class="pmd-sidebar-overlay"></div>
+  </section>
+  <!-- jQuery before Propeller.js -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/propeller.min.js"></script>
+</body>
+
+</html>

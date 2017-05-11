@@ -1,0 +1,33 @@
+extends  ../layout_admin
+
+block append headCssFiles
+  link(rel="stylesheet" href="/css/index_admin.css")
+block append footJsFiles
+  script(src="/lib/echarts/dist/echarts.min.js")
+  script(src="/js/index_admin.js") 
+block append content 
+    //index content starts
+    #content.pmd-content.content-area.dashboard
+      .container-fluid
+        #card-masonry.row
+          .col-md-9.col-sm-12.col-xs-12
+            .pmd-card.pmd-z-depth
+              .pmd-card-title
+                .media-left
+                  i.fa.fa-tags.fa-lg(style="color:orange")
+                .media-body.media-middle
+                  h2.pmd-card-title-text.typo-fill-secondary  用户分布
+                .media-right.datetimepicker   
+              .pmd-card-body 
+                #main(style="width: 600px;height:400px;")
+          .col-md-4.col-sm-12.col-xs-12
+        .row
+          .col-md-4.col-sm-12.col-xs-12
+            .pmd-card.pmd-z-depth.statistics-content
+              .pmd-card-title
+                .media-left
+                  i.fa.fa-thumbs-up.fa-lg(style="color:orange")
+                .media-body.media-middle
+                  h2.pmd-card-title-text.typo-fill-secondary  开发人员
+              .pmd-card-body.statistics.text-center     
+            

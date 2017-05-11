@@ -1,0 +1,65 @@
+extends  ../layout
+
+block content
+    .row
+      .col-md-4.col-md-offset-4
+        .pmd-content.content-area
+        .pmd-card.pmd-z-depth.pmd-card-custom-form
+          .form(method="POST")
+            .pmd-card-title.card-header-border.text-center
+              .avatar
+                img(src="/images/avatar-icon.png" alt="个人头像")
+              h3 修改个人资料
+            .pmd-card-body
+              //-username
+              .form-group.pmd-textfield.pmd-textfield-floating-label
+                label.control-label.pmd-input-group-label(for="username") 用户名
+                .input-group
+                  .input-group-addon
+                    i.fa.fa-user.fa-lg
+                  input#username.form-control(type="text" name="username" value=`${user.name}`)
+                  span.pmd-textfield-focused  
+              //- sex
+              .form-group.pmd-textfield.pmd-textfield-label.clearfix
+                .radio.pull-left
+                  label.pmd-radio.radio-pmd-ripple-effect(for="male")
+                    input(id="male" type="radio" name="sex" checked value)
+                    | &nbsp;&nbsp;<span class="pmd-radio">男</span>&nbsp;&nbsp;
+                  label.pmd-radio.radio-pmd-ripple-effect(for="female")
+                    input(id="female" type="radio" name="sex" value)
+                    | &nbsp;&nbsp;<span class="pmd-radio">女</span>  
+              //- phone
+              .form-group.pmd-textfield.pmd-textfield-floating-label
+                label.control-label.pmd-input-group-label(for="phone") 手机号
+                .input-group
+                  .input-group-addon
+                    i.fa.fa-phone.fa-lg
+                  input#phone.form-control(type="text" name="phone")
+                  span.pmd-textfield-focused     
+              //- e-mail
+              .form-group.pmd-textfield.pmd-textfield-floating-label
+                label.control-label.pmd-input-group-label(for="e-mail") 邮箱
+                .input-group
+                  .input-group-addon
+                    i.fa.fa-envelope.fa-lg
+                  input#e-mail.form-control(type="text" name="e-mail")
+                  span.pmd-textfield-focused      
+              //- cardType
+              .form-group.pmd-textfield.pmd-textfield-floating-label.clearfix
+                .radio.pull-left
+                  label.pmd-radio.radio-pmd-ripple-effect(for="teacher")
+                    input(id="teacher" type="radio" name="cardType" value="teacher")
+                    | &nbsp;&nbsp;<span class="pmd-radio">教师证</span>&nbsp;&nbsp;
+                  label.pmd-radio.radio-pmd-ripple-effect(for="student")
+                    input(id="student" type="radio" name="cardType" checked value="student")
+                    | &nbsp;&nbsp;<span class="pmd-radio">学生证</span> 
+              .form-group.pmd-textfield.pmd-textfield-floating-label               
+                label.control-label.pmd-input-group-label(for="cardNumber") 证件号码
+                .input-group
+                 .input-group-addon
+                   i.fa.fa-envelope.fa-lg
+                 input#cardNumber.form-control(type="text" name="cardNumber")
+                 span.pmd-textfield-focused 
+            .pmd-card-actions
+              botton.btn.pmd-btn-outline.pmd-ripple-effect.btn-primary 提交
+              a.btn.pmd-btn-raised.pmd-ripple-effect.btn-primary(href="/") 取消

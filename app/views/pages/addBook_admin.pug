@@ -1,0 +1,104 @@
+extends  ../layout_admin
+
+block append footJsFiles
+  script(src="/js/addBook_admin.js") 
+block append content
+  .row
+    .col-md-6.col-md-offset-4
+      #content.pmd-content.dashboard.content-area
+        .pmd-card.pmd-z-depth.pmd-card-custom-form
+          form(method="POST" action="/admin/saveBook")
+            .pmd-card-title.card-header-border.text-center
+              h3 录入图书
+            .pmd-card-body
+              //-number
+              .form-group.pmd-textfield.pmd-textfield-floating-label
+                label.control-label.pmd-input-group-label(for="number") 图书编号-豆瓣
+                .input-group
+                  .input-group-addon
+                    i.fa.fa-user.fa-lg
+                  input#number.form-control(type="text" name="number" value="10546125")
+                  span.pmd-textfield-focused  
+              //- title
+              .form-group.pmd-textfield.pmd-textfield-floating-label
+                label.control-label.pmd-input-group-label(for="title") 图书名
+                .input-group
+                  .input-group-addon
+                    i.fa.fa-phone.fa-lg
+                  input#title.form-control(type="text" name="title")
+                  span.pmd-textfield-focused    
+              //- author
+              .form-group.pmd-textfield.pmd-textfield-floating-label
+                label.control-label.pmd-input-group-label(for="author") 作者
+                .input-group
+                  .input-group-addon
+                    i.fa.fa-phone.fa-lg
+                  input#author.form-control(type="text" name="author")
+                  span.pmd-textfield-focused     
+              //- translator
+              .form-group.pmd-textfield.pmd-textfield-floating-label
+                label.control-label.pmd-input-group-label(for="translator") 译者
+                .input-group
+                  .input-group-addon
+                    i.fa.fa-envelope.fa-lg
+                  input#translator.form-control(type="text" name="translator")
+                  span.pmd-textfield-focused
+              //- publisher
+              .form-group.pmd-textfield.pmd-textfield-floating-label
+                label.control-label.pmd-input-group-label(for="publisher") 出版社
+                .input-group
+                  .input-group-addon
+                    i.fa.fa-envelope.fa-lg
+                  input#publisher.form-control(type="text" name="publisher")
+                  span.pmd-textfield-focused  
+              //- price
+              .form-group.pmd-textfield.pmd-textfield-floating-label
+                label.control-label.pmd-input-group-label(for="price") 价格
+                .input-group
+                  .input-group-addon
+                    i.fa.fa-envelope.fa-lg
+                  input#price.form-control(type="text" name="price")
+                  span.pmd-textfield-focused
+              .form-group.pmd-textfield.pmd-textfield-floating-label
+                label.control-label.pmd-input-group-label(for="pages") 页数
+                .input-group
+                  .input-group-addon
+                    i.fa.fa-envelope.fa-lg
+                  input#pages.form-control(type="text" name="pages")
+                  span.pmd-textfield-focused
+              //- pubdate
+              .form-group.pmd-textfield.pmd-textfield-floating-label
+                label.control-label.pmd-input-group-label(for="pubdate") 出版时间
+                .input-group
+                  .input-group-addon
+                    i.fa.fa-envelope.fa-lg
+                  input#pubdate.form-control(type="text" name="pubdate")
+                  span.pmd-textfield-focused   
+              //- image
+              .form-group.pmd-textfield.pmd-textfield-floating-label
+                label.control-label.pmd-input-group-label(for="image") 图像地址
+                .input-group
+                  .input-group-addon
+                    i.fa.fa-envelope.fa-lg
+                  input#image.form-control(type="text" name="image")
+                  span.pmd-textfield-focused        
+              //- summary
+              .form-group.pmd-textfield.pmd-textfield-floating-label
+                label.control-label.pmd-input-group-label(for="summary") 内容摘要
+                .input-group
+                  .input-group-addon
+                    i.fa.fa-envelope.fa-lg
+                  textarea#summary.form-control(type="text" name="summary")
+                  span.pmd-textfield-focused              
+              //- cardType 
+              //.form-group.pmd-textfield.pmd-textfield-floating-label.clearfix
+              //  .radio.pull-left
+              //    label.pmd-radio.radio-pmd-ripple-effect(for="teacher")
+              //      input(id="teacher" type="radio" name="cardType" value)
+              //      | &nbsp;&nbsp;<span class="pmd-radio">教师证</span>&nbsp;&nbsp;
+              //    label.pmd-radio.radio-pmd-ripple-effect(for="student")
+              //      input(id="student" type="radio" name="student" checked value)
+              //      | &nbsp;&nbsp;<span class="pmd-radio">学生证</span>
+            .pmd-card-actions
+              button.btn.pmd-btn-outline.pmd-ripple-effect.btn-primary(type="submit") 提交
+              button.btn.pmd-btn-raised.pmd-ripple-effect.btn-primary 取消
