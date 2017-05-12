@@ -9,6 +9,11 @@ var UserSchema = new Schema({
         type: String
     },
     password: String,
+    sex:String,
+    phone:String,
+    cardType:String,
+    cardNumber:String,
+    email:String,
     createAt: {
         type: Date,
         default: Date.now()
