@@ -17,7 +17,6 @@ exports.showEditProfile = function (req, res) {
     var name = req.session.user.name;
     UserModel.findOne({name: name}, function (err, user) {
         if (err) throw err;
-        console.log(user)
         res.render("editProfile.pug", {
             title: "编辑资料",
             user: user

@@ -20,5 +20,11 @@
     "public/lib",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "animate.css": "^3.5.2",
+    "echarts": "^3.5.4",
+    "propeller": "^1.1.0"
+  }
 }

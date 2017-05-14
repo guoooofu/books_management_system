@@ -1,0 +1,96 @@
+
+extends  ../layout_admin
+block append headCssFiles
+	link(rel="stylesheet" href="/css/paging.min.css") 
+block append footJsFiles
+	script(src="/js/paging.min.js")
+	script(src="/js/bookList_admin.js")
+block append content
+	.row.contentContainer
+		.col-md-10.col-md-offset-2
+			#content.pmd-card.pmd-content.dashboard.content-area.text-center
+				.pull-right.table-title-top-action
+					.pull-left.pmd-textfield
+						input#searchInput.form-control(type='text' placeholder="图书编号、图书名、作者")
+						span.pmd-textfield-focused
+					button.btn.btn-primary.pmd-btn-raised.add-btn.pmd-ripple-effect.pull-left.search(type="button")
+						i.fa.fa-search.fa-lg
+				.pmd-card-title.card-header-border
+					h3 图书列表
+				.pmd-card-body.table-responsive
+					table.table.table-bordered.table-hover.table-mc-red.pmd-table
+						thead
+							tr
+								th 序号
+								th 图书编号
+								th 图书名
+								th 作者
+								th 出版时间
+								th 入库
+								th 更新
+								th 操作
+						tbody
+				//- 			if books&&books.length>0
+				//- 				each item,index in books
+				//- 					tr(data-id=`${item._id}`)
+				//- 						td #{index+1}
+				//- 						td.nubmer #{item.number}
+				//- 						td.title #{item.title}
+				//- 						td.author #{item.author}
+				//- 						td.pubdate #{item.pubdate}
+				//- 						td.createAt #{moment(item.createAt).format('YYYY-MM-DD')}
+				//- 						td.updateAt #{moment(item.updateAt).format('YYYY-MM-DD')}
+				//- 						td
+				//- 							button.btn.pmd-btn-fab.pmd-btn-flat.pmd-ripple-effect.btn-default.btn-sm.detail(type="button" data-id=`${item._id}` data-target="#book_detail" data-toggle="modal")
+				//- 								i.fa.fa-pencil.fa-lg
+				//- 							button.btn.pmd-btn-fab.pmd-btn-flat.pmd-ripple-effect.btn-default.btn-sm.delete(type="button" data-id=`${item._id}`)
+				//- 								i.fa.fa-trash-o.fa-lg
+				//- 			else
+				//- 				tr
+				//- 					td(colspan="8") 空空如也...
+				//- 						a.btn.btn-xs.pmd-btn-outline.pmd-ripple-effect.btn-primary(href="/admin/addBook") 录入
+				.pmd-card-actions
+					#pagination
+										
+		// 图书详情模态窗
+		#book_detail.modal.fade(style="display: none;" aria-hidden="true" tabindex="-1")
+			.modal-dialog
+				.modal-header.pmd-modal-bordered
+					button.close(aria-hidden="true" data-dismiss="modal" type="button") x
+					.md-card-title-text 图书详情
+				.modal-body
+					form#reviseBook.form-horizontal
+						.form-group.pmd-textfield.pmd-textfield-floating-label
+							label(for="number") 图书编号-豆瓣
+							input#number.mat-input.form-control(type="text" name="number" disabled readonly)
+						.form-group.pmd-textfield.pmd-textfield-floating-label
+							label(for="title") 图书名
+							input#title.mat-input.form-control(type="text" name="title")
+						.form-group.pmd-textfield.pmd-textfield-floating-label
+							label(for="author") 作者
+							input#author.mat-input.form-control(type="text" name="author")
+						.form-group.pmd-textfield.pmd-textfield-floating-label
+							label(for="translator") 译者
+							input#translator.mat-input.form-control(type="text" name="translator")
+						.form-group.pmd-textfield.pmd-textfield-floating-label
+							label(for="publisher") 出版社
+							input#publisher.mat-input.form-control(type="text" name="publisher")
+						.form-group.pmd-textfield.pmd-textfield-floating-label
+							label(for="price") 价格
+							input#price.mat-input.form-control(type="text" name="price")
+						.form-group.pmd-textfield.pmd-textfield-floating-label
+							label(for="pages") 页数
+							input#pages.mat-input.form-control(type="text" name="pages")
+						.form-group.pmd-textfield.pmd-textfield-floating-label
+							label(for="pubdate") 出版日期
+							input#pubdate.mat-input.form-control(type="text" name="pubdate")
+						.form-group.pmd-textfield.pmd-textfield-floating-label
+							label(for="summary") 摘要
+							textarea#summary.mat-input.form-control(type="text" name="summary")
+				.modal-footer
+					.pull-left
+						button.btn.pmd-btn-outline.pmd-ripple-effect.btn-primary.revise(type="button") 修改
+						button.btn.pmd-btn-raised.pmd-ripple-effect.btn-primary(aria-hidden="true" data-dismiss="modal" type="button") 取消					
+							
+														
+										

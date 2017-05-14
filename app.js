@@ -20,11 +20,16 @@ var userRouter = require('./routes/userRouter');
 var bookRouter = require('./routes/bookRouter')
 
 // 连接数据库
-// var options = { promiseLibrary: require('bluebird') };
-// var db = mongoose.createConnection(dbUrl, options);
-// db.on('error', console.error.bind(console, 'connection error:'));
 mongoose.connect(dbUrl);
-
+mongoose.connection.on('connected', function () {
+    console.log('Mongoose connection open to ' + dbUrl);
+});
+mongoose.connection.on('error',function (err) {
+    console.log('Mongoose connection error: ' + err);
+});
+mongoose.connection.on('disconnected', function () {
+    console.log('Mongoose connection disconnected');
+});
 // 公用中间件
 app.set("views","./app/views/pages");
 app.set("view engine","pug");
