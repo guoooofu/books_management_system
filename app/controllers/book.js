@@ -94,5 +94,16 @@ exports.deleteBook = function(req, res) {
 }
 //
 exports.searchBook=function(req,res){
-  
+  var keyword=req.query.key;
+  var reg=new RegExp(keyword + '.*', 'i');
+  options={page: 1,limit: 3,sort:{"updateAt":-1}}
+  BookModel.paginate({$or:[
+    {title:{$regex:reg}},
+    {number:{$regex:reg}},
+    {author:{$regex:reg}}
+  ]}, options,function(err, result) {
+    if (err)
+      throw err;
+    return res.json(result)
+  });
 }

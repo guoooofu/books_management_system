@@ -8,8 +8,10 @@ $(document).ready(function() {
       url: "/admin/bookList/" + currentPage,
       async: false,
       success: function(result) {
-        bookResult(result)
         var $pagination = $("#pagination");
+        $('tbody').html('');
+        bookResult(result);
+        $pagination.html('');
         $pagination.Paging({
           pagesize: result.limit,
           count: result.total,
@@ -34,7 +36,22 @@ $(document).ready(function() {
       url:"/book/search?key="+key,
       success:function(result){
         console.log(result)
-        // bookResult(result)
+        var $pagination = $("#pagination");
+        $('tbody').html('');
+        $pagination.html('');
+        bookResult(result);
+        $pagination.Paging({
+          pagesize: result.limit,
+          count: result.total,
+          current: currentPage,
+          callback: function(page) {
+            $('tbody').html('');
+            $pagination.html('');
+            //翻页时的回调方法，page为当前页码
+            currentPage = page;
+            init(currentPage);
+          }
+        })
       },
       error:function(err){
         console.log(err)
@@ -132,7 +149,7 @@ $(document).ready(function() {
             <button class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm detail"  data-id= ${result.docs[i]._id} data-target="#book_detail" data-toggle="modal">
               <i class="fa fa-pencil fa-lg"></i>
             </button>
-            <button class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm delete"  data-id= ${result.docs[i]._id} data-target="#book_detail" data-toggle="modal">
+            <button class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm delete"  data-id= ${result.docs[i]._id}>
               <i class="fa fa-trash-o fa-lg"></i>
             </button>
           </td>
@@ -146,5 +163,6 @@ $(document).ready(function() {
           </td>
         </tr>
       `)
-    }}
+    }
+  }
 })
